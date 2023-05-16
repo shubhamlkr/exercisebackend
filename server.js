@@ -17,7 +17,7 @@ app.use((req,res,next)=>{
 app.use('/api/workouts',workoutroutes)
 
 
-mongoose.connect(process.env.MONG_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://shubhamkr78700:shubhamkr78700@cluster0.rmqichz.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
 .then((result) => {
   console.log("Done");
 })
