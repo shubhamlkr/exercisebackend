@@ -16,13 +16,13 @@ app.use((req,res,next)=>{
 
 app.use('/api/workouts',workoutroutes)
 
-mongoose.connect(process.env.MONG_URI)
-.then(()=>{
-    app.listen(process.env.PORT,()=>{
-        console.log('connected to db and listening on port',process.env.PORT,'!!') 
-    })
+.mongoose
+.connect(process.env.MONG_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+.then((result) => {
+  console.log("Done");
 })
-.catch((error)=>{
-    console.log(error);
-})
+.catch((e) => console.log(e));
 
+const PORT = process.env.PORT || 1337;
+
+app.listen(PORT)
